@@ -106,14 +106,18 @@ public class VentanaC extends javax.swing.JFrame {
      * @param evt 
      */
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        
         String mensaje=txtMensaje.getText();
-        for (int i = 0; i <= usuariosList.size(); i++){
+        txtHistorial.append("## Yo ->  ## : \n" + mensaje+"\n");
+        if ("/bye".equals(mensaje)){
+            cliente.confirmarDesconexion();
+            System.exit(0);
+        }else{
+         for (int i = 0; i <= usuariosList.size(); i++){
         String cliente_receptor= usuariosList.get(i);
         cliente.enviarMensaje(cliente_receptor, mensaje);
         txtMensaje.setText(""); 
+        } 
         }
-        txtHistorial.append("## Yo ->  ## : \n" + mensaje+"\n");
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

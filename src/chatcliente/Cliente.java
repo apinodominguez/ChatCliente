@@ -17,6 +17,7 @@ public class Cliente extends Thread {
     private final String host;
     private final int puerto;
     
+    
     Cliente(VentanaC ventana, String host, Integer puerto, String nombre) {
         this.ventana=ventana;        
         this.host=host;
@@ -109,6 +110,7 @@ public class Cliente extends Thread {
             case "NUEVO_USUARIO_CONECTADO":
                 ventana.addContacto(lista.get(1));
                 ventana.conexionUser(lista.get(1));
+               
                 break;
             case "USUARIO_DESCONECTADO":
                 ventana.eliminarContacto(lista.get(1));
